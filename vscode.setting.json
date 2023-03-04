@@ -1,0 +1,131 @@
+{
+  "editor.inlineSuggest.enabled": true,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "workbench.startupEditor": "none",
+  "rpc.detailsIdling": "自閉吸貓",
+  "rpc.detailsEditing": "在 {workspace_folder} 教貓咪翻跟斗",
+  "rpc.detailsViewing": "在 {workspace_folder} 教貓咪翻跟斗",
+  "rpc.idleTimeout": 600,
+  "rpc.detailsDebugging": "在 {workspace_folder} 教貓咪翻跟斗",
+  "rpc.largeImageIdling": "Idle",
+  "rpc.removeElapsedTime": true,
+  "rpc.lowerDetailsIdling": "",
+  "rpc.largeImage": "{Lang}",
+  "editor.fontSize": 15,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": false,
+    "javascript": false
+  },
+  "git.autofetch": true,
+  "rainbow_csv.enable_context_menu_tail": true,
+  "rpc.lowerDetailsDebugging": "在 {workspace_folder} 除錯卯咪",
+  "rpc.lowerDetailsEditing": "{file_name} ({current_line}:{current_column})",
+  "rpc.lowerDetailsViewing": "看著 {file_name} 翻跟斗",
+  "rpc.showProblems": false,
+  "git.confirmSync": false,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.statusBar.enabled": false,
+  "editor.tabSize": 2,
+  "leetcode.workspaceFolder": "/home/andyjjrt/.leetcode",
+  "leetcode.hint.commentDescription": false,
+  "leetcode.useWsl": true,
+  "leetcode.hint.configWebviewMarkdown": false,
+  "leetcode.hint.commandShortcut": false,
+  "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0}",
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.editor.splitInGroupLayout": "vertical",
+  "less.lint.unknownAtRules": "ignore",
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "liveServer.settings.root": "/dist",
+  "remote.containers.dockerComposePath": "docker compose",
+  "remote.SSH.configFile": "\\\\wsl.localhost\\Ubuntu\\home\\andyjjrt\\.ssh",
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "githubPullRequests.fileListLayout": "tree",
+  "githubPullRequests.createOnPublishBranch": "never",
+  "githubPullRequests.pullBranch": "never",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "redhat.telemetry.enabled": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[postcss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "git.mergeEditor": false,
+  "python.formatting.autopep8Args": ["--indent-size=2", " --ignore=E121"],
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.documentSelectors": [".jsx"],
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[csharp]": {
+    "editor.defaultFormatter": "csharpier.csharpier-vscode"
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "[c]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "rpc.appName": "Visual Studio Code",
+  "discord.removeTimestamp": true,
+  "discord.detailsIdling": "自閉吸貓",
+  "discord.detailsEditing": "在 {workspace_folder} 教貓咪翻跟斗",
+  "discord.lowerDetailsEditing": "{file_name} ({current_line}, {current_column})",
+  "discord.lowerDetailsIdling": "自閉吸貓",
+  "discord.lowerDetailsDebugging": "Debugging {file_name} ({current_line}, {current_column})",
+  "discord.detailsDebugging": "在 {workspace_folder} 教貓咪翻跟斗",
+  "discord.largeImage": "{LANG}",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "workbench.colorTheme": "Atom One Dark",
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "editor.accessibilitySupport": "off",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.formatOnType": true
+  },
+  "svg.preview.mode": "svg",
+  "playwright.reuseBrowser": true,
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "workbench.colorCustomizations": {
+    "terminal.background": "#282c34",
+    "terminal.foreground": "#dcdfe4",
+    "terminal.ansiBlack": "#282c34",
+    "terminal.ansiRed": "#e06c75",
+    "terminal.ansiGreen": "#98c379",
+    "terminal.ansiYellow": "#e5c07b",
+    "terminal.ansiBlue": "#61afef",
+    "terminal.ansiMagenta": "#c678dd",
+    "terminal.ansiCyan": "#56b6c2",
+    "terminal.ansiWhite": "#dcdfe4",
+    "terminal.ansiBrightBlack": "#383a42",
+    "terminal.ansiBrightRed": "#e45649",
+    "terminal.ansiBrightGreen": "#50a14f",
+    "terminal.ansiBrightYellow": "#c18401",
+    "terminal.ansiBrightBlue": "#0184bc",
+    "terminal.ansiBrightMagenta": "#a626a4",
+    "terminal.ansiBrightCyan": "#0997b3",
+    "terminal.ansiBrightWhite": "#fafafa"
+  },
+  "terminal.integrated.fontFamily": "'DejaVu Sans Mono for Powerline'",
+  "terminal.integrated.defaultProfile.linux": "tmux",
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.gpuAcceleration": "on",
+  "terminal.integrated.shellIntegration.suggestEnabled": true
+}
