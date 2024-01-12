@@ -1,6 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -11,9 +8,9 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 # command line 左邊想顯示的內容
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir) # <= left prompt 設了 "dir"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir)
 # command line 右邊想顯示的內容
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs) # <= right prompt 設了 "time"
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(asdf vcs)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_first_and_last"
 
@@ -82,9 +79,12 @@ ZSH_TMUX_AUTOSTART=true
 plugins=(
 	git
 	zsh-autosuggestions
+	asdf
 )
 
 source $ZSH/oh-my-zsh.sh
+
+unalias gcp
 
 # User configuration
 
@@ -114,72 +114,40 @@ source $ZSH/oh-my-zsh.sh
 
 export TERM="xterm-256color"
 
-
 # custom command alias
-alias oj="python2.7 ~/oj-cli/oj.py"
-alias vite-create="npm create vite@latest"
+
+# ngrok
 export PATH=$PATH:/home/andyjjrt/ngrok
 
 # JAVA configs
-export JAVA_HOME=/bin/zulu/java8/
+export JAVA_HOME=/bin/zulu/java17
 export PATH=$PATH:$JAVA_HOME/bin
-
-export PATH=$PATH:/usr/bin/anaconda3/bin
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # pnpm
 export PNPM_HOME="/home/andyjjrt/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# Deno
-export DENO_INSTALL="/home/andyjjrt/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-
-# fzf
-export FZF_COMMAND="fd -E .git -E node_modules --color=always"
-export FZF_DEFAULT_COMMAND="$FZF_COMMAND --type f"
-export FZF_CTRL_T_COMMAND=$FZF_COMMAND
-export FZF_ALT_C_COMMAND="$FZF_COMMAND --type d"
-export FZF_DEFAULT_OPTS="--ansi --reverse --border --preview='bat -n --color=always {}'"
-
-export FZF_CTRL_T_OPTS="
-  --preview 'bat -n --color=always {}'
-  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-
-export FZF_CTRL_R_OPTS="
-  --preview 'echo {}' --preview-window up:3:hidden:wrap
-  --bind 'ctrl-/:toggle-preview'
-  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
-  --color header:italic
-  --header 'Press CTRL-Y to copy command into clipboard'"
-
-export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
-
-export TMUX_FZF_LAUNCH_KEY="C-f"
-export TMUX_FZF_OPTIONS="-p -w 70% -h 50% -m"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# pnpm
-export PNPM_HOME="/home/andyjjrt/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 # pnpm end
+
+function rcode() {code --folder-uri=vscode-remote://ssh-remote+$1$2}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/git-fuzzy/bin"
+export PATH="$PATH:$HOME/.local/gh-cli/bin"
 
-[ -f "/home/andyjjrt/.ghcup/env" ] && source "/home/andyjjrt/.ghcup/env" # ghcup-env
+export ANDROID_HOME="$HOME/.local/android-cli"
+export PATH=$ANDROID_HOME/tools/bin:$PATH
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/emulator:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
+export PATH=$ANDROID_HOME/cmdline-tools/latest:$PATH
 
-source $HOME/.cargo/env
+export GF_PREFERRED_PAGER="delta --theme=gruvbox --highlight-removed" 
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+alias oj='python2.7 /home/andyjjrt/oj-cli/oj.py'
