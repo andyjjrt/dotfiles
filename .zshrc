@@ -79,8 +79,8 @@ ZSH_TMUX_AUTOSTART=true
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
-	asdf
 	zsh-autosuggestions
+    asdf
 	forgit
 )
 
@@ -134,7 +134,7 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
