@@ -83,11 +83,11 @@ bash Miniforge3-$(uname)-$(uname -m).sh -p $HOME/.local/miniforge3 -b
 # lazydocker
 curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
 
-# asdf & node & pnpm
+# node & pnpm
 . "$HOME/.asdf/asdf.sh"
 asdf plugin add nodejs
 asdf install nodejs 20.17.0
 asdf global nodejs 20.17.0
 npm install -g pnpm
 
-echo "Use `:PlugInstal` to install plugin in vim"
+echo "Use `:PlugInstall` to install plugin in vim"
