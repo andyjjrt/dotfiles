@@ -7,7 +7,7 @@ sudo apt update
 sudo apt upgrade
 
 # install essential packages
-export ESSENTIAL_PACKAGES="curl git build-essential"
+export ESSENTIAL_PACKAGES="curl git build-essential vim"
 sudo apt install $ESSENTIAL_PACKAGES
 
 mkdir ~/.local
@@ -17,6 +17,10 @@ sudo apt install zsh
 sudo chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 cp .zshrc ~/.zshrc
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+git clone https://github.com/wfxr/forgit.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/forgit
 
 # p10k
 cp .p10k.zsh ~/.p10k.zsh
@@ -33,4 +37,4 @@ tmux source ~/.tmux.conf
 
 # fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-./~/.fzf/install
+cp .fzf.zsh ~/.fzf.zsh
