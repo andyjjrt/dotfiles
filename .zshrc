@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -7,12 +14,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-# command line 左邊想顯示的內容
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir)
-# command line 右邊想顯示的內容
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(asdf vcs)
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_first_and_last"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -29,7 +30,7 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_first_and_last"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto       # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -78,13 +79,13 @@ ZSH_TMUX_AUTOSTART=true
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
-	zsh-autosuggestions
 	asdf
+	zsh-autosuggestions
+	forgit
 )
 
+export ZSH_COMPDUMP=$ZSH/.cache/.zcompdump-$HOST
 source $ZSH/oh-my-zsh.sh
-
-unalias gcp
 
 # User configuration
 
@@ -116,12 +117,6 @@ export TERM="xterm-256color"
 
 # custom command alias
 
-# ngrok
-export PATH=$PATH:/home/andyjjrt/ngrok
-
-# JAVA configs
-export JAVA_HOME=/bin/zulu/java17
-export PATH=$PATH:$JAVA_HOME/bin
 # pnpm
 export PNPM_HOME="/home/andyjjrt/.local/share/pnpm"
 case ":$PATH:" in
@@ -130,24 +125,37 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-function rcode() {code --folder-uri=vscode-remote://ssh-remote+$1$2}
+# fzf
+export FZF_DEFAULT_COMMAND="bfs -L -type f -exclude -name .git -exclude -name .cache -exclude -name node_modules 2> /dev/null"
+export FZF_DEFAULT_OPTS='--tmux 75%,60%'
+export FZF_CTRL_T_OPTS="--preview '(bat --color=always --style=numbers {} || tree -C {}) 2> /dev/null'"
+export FZF_CTRL_R_OPTS='--no-sort --exact --reverse'
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.local/git-fuzzy/bin"
-export PATH="$PATH:$HOME/.local/gh-cli/bin"
 
-export ANDROID_HOME="$HOME/.local/android-cli"
-export PATH=$ANDROID_HOME/tools/bin:$PATH
-export PATH=$ANDROID_HOME/tools:$PATH
-export PATH=$ANDROID_HOME/emulator:$PATH
-export PATH=$ANDROID_HOME/platform-tools:$PATH
-export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
-export PATH=$ANDROID_HOME/cmdline-tools/latest:$PATH
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/andyjjrt/.local/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/andyjjrt/.local/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/andyjjrt/.local/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/andyjjrt/.local/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
 
-export GF_PREFERRED_PAGER="delta --theme=gruvbox --highlight-removed" 
+if [ -f "/home/andyjjrt/.local/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/home/andyjjrt/.local/miniforge3/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias oj='python2.7 /home/andyjjrt/oj-cli/oj.py'
+
+
