@@ -1,0 +1,17 @@
+services:
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    container_name: dotfiles-test
+    hostname: dotfiles-test
+    volumes:
+      - .:/dotfiles
+      - .zshrc:/home/testuser/.zshrc:ro
+      - .p10k.zsh:/home/testuser/.p10k.zsh:ro
+      - .tmux.conf:/home/testuser/.tmux.conf:ro
+    environment:
+      - INSTALL_DOCKER=0
+    working_dir: /dotfiles
+    stdin_open: true
+    tty: true
