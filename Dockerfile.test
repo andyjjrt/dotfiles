@@ -3,10 +3,9 @@ FROM ubuntu:24.04
 ENV DEBIAN_FRONTEND=noninteractive
 ENV INSTALL_DOCKER=0
 
-RUN apt-get update && apt-get install -y sudo
+RUN apt-get update && apt-get install -y curl git zsh
 
-RUN useradd -m -s /bin/bash testuser && \
-    echo 'testuser ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+RUN useradd -m -s /bin/bash testuser
 
 USER testuser
 WORKDIR /dotfiles

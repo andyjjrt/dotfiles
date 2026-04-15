@@ -15,3 +15,20 @@ services:
     working_dir: /dotfiles
     stdin_open: true
     tty: true
+
+  test-sudo:
+    build:
+      context: .
+      dockerfile: Dockerfile.test.sudo
+    container_name: dotfiles-test-sudo
+    hostname: dotfiles-test-sudo
+    volumes:
+      - .:/dotfiles
+      - .zshrc:/home/testuser/.zshrc:ro
+      - .p10k.zsh:/home/testuser/.p10k.zsh:ro
+      - .tmux.conf:/home/testuser/.tmux.conf:ro
+    environment:
+      - INSTALL_DOCKER=0
+    working_dir: /dotfiles
+    stdin_open: true
+    tty: true
